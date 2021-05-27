@@ -4,6 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class IndexControllerTest {
@@ -33,6 +35,22 @@ class IndexControllerTest {
     void exceptionHandler() {
         assertThrows(ValueNotFoundException.class, () -> {
             controller.exceptionHandler();
+        });
+    }
+
+    @Test
+    void testTimeOut() {
+        assertTimeout(Duration.ofMillis(100), () -> {
+            Thread.sleep(2000);
+            System.out.println("Inside testTimeOut test");
+        });
+    }
+
+    @Test
+    void testTimeOutPrempt() {
+        assertTimeoutPreemptively(Duration.ofMillis(100), () -> {
+            Thread.sleep(2000);
+            System.out.println("Inside testTimeOutPrempt test");
         });
     }
 }
