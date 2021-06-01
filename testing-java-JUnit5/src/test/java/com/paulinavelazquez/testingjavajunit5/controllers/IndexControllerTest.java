@@ -7,6 +7,7 @@ import org.junit.jupiter.api.condition.*;
 
 import java.time.Duration;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
@@ -23,6 +24,13 @@ class IndexControllerTest {
     @Test
     void index() {
         assertEquals("index", controller.index(), "wrong view returned");
+    }
+
+    // AssertJ
+    @DisplayName("Test Proper View using AssertJ")
+    @Test
+    void testingIndexUsingAssertJ() {
+        assertThat(controller.index()).isEqualTo("index");
     }
 
     @Test
@@ -66,6 +74,7 @@ class IndexControllerTest {
         assumeTrue("GURU".equalsIgnoreCase(System.getenv("GURU")));
     }
 
+    // Conditional Execution
     @EnabledOnOs(OS.MAC)
     @Test
     void testMeOnMacOS() {
@@ -96,3 +105,18 @@ class IndexControllerTest {
     void testIfUserFred() {
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
