@@ -2,6 +2,8 @@ package com.paulinavelazquez.testingjavajunit5.model;
 
 import org.junit.jupiter.api.Test;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
 import static org.junit.jupiter.api.Assertions.*;
 
 class OwnerTest {
@@ -21,7 +23,15 @@ class OwnerTest {
                         () -> assertEquals("Key West", owner.getCity(), "City do not match"),
                         () -> assertEquals("1231231234", owner.getTelephone(), "Telephone do not match")
         ));
+    }
 
+    @Test
+    void dependentAssertionsWithHamcrest() {
+        Owner owner = new Owner(1L, "Paola", "Longoria");
+        owner.setCity("Key West");
+        owner.setTelephone("1231231234");
+
+        assertThat(owner.getCity(), is("Key West"));
     }
 }
 
