@@ -1,5 +1,6 @@
 package com.paulinavelazquez.advancedjunittesting.model;
 
+import com.paulinavelazquez.advancedjunittesting.ModelTests;
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -7,8 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.jupiter.api.Assertions.*;
 
-@Tag("model")
-class OwnerTest {
+class OwnerTest implements ModelTests {
 
     @Test
     void dependentAssertions() {
