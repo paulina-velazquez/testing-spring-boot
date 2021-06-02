@@ -1,5 +1,6 @@
 package com.paulinavelazquez.advancedjunittesting.controllers;
 
+import com.paulinavelazquez.advancedjunittesting.ControllerTests;
 import com.paulinavelazquez.advancedjunittesting.fauxspring.Model;
 import com.paulinavelazquez.advancedjunittesting.fauxspring.ModelMapImpl;
 import com.paulinavelazquez.advancedjunittesting.model.Vet;
@@ -16,8 +17,7 @@ import java.util.Set;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@Tag("controllers")
-class VetControllerTest {
+class VetControllerTest implements ControllerTests {
 
     VetService vetService;
     SpecialityService specialityService;
