@@ -28,17 +28,6 @@ class PersonTest implements ModelTests {
                 () -> assertEquals("Veronica", person.getFirstName(), "First name do not match"),
                 () -> assertEquals("Sambors", person.getLastName(), "Last name do not match"));
     }
-
-    @RepeatedTest(value = 10, name = "{displayName} : {currentRepetition} - {totalRepetitions}")
-    @DisplayName("My Repeated Test")
-    void myRepeatedTest() {
-        // todo - impl
-    }
-
-    @RepeatedTest(5)
-    void myRepeatedTestWithDI(TestInfo testInfo, RepetitionInfo repetitionInfo) {
-        System.out.println(testInfo.getDisplayName() + ": " + repetitionInfo.getCurrentRepetition());
-    }
 }
 
 
