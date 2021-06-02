@@ -2,8 +2,9 @@ package com.paulinavelazquez.advancedjunittesting.model;
 
 import com.paulinavelazquez.advancedjunittesting.ModelTests;
 import org.hamcrest.MatcherAssert;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.jupiter.api.Assertions.*;
@@ -33,5 +34,12 @@ class OwnerTest implements ModelTests {
         owner.setCity("Key West");
         owner.setTelephone("123123123");
         MatcherAssert.assertThat(owner.getCity(), is("Key West"));
+    }
+
+    // Parameterized Value Source
+    @ParameterizedTest
+    @ValueSource(strings = {"Spring", "Framework", "Guru"})
+    void testValueSource(String val) {
+        System.out.println(val);
     }
 }
