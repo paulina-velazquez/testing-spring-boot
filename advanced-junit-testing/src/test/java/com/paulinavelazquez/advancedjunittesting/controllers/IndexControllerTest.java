@@ -34,22 +34,23 @@ class IndexControllerTest implements ControllerTests {
         assertThat(controller.index()).isEqualTo("index");
     }
 
-    @DisplayName("Test Exception")
-    @Test
-    void exceptionHandler() {
-        assertThrows(ValueNotFoundException.class, () -> {
-            Thread.sleep(200);
-            System.out.println("Inside testTimeout test");
-        });
-    }
-
-    @Test
-    void testTimeOutPrempt() {
-        assertTimeoutPreemptively(Duration.ofMillis(100), () -> {
-            Thread.sleep(2000);
-            System.out.println("Inside testTimeOutPremt test");
-        });
-    }
+    // TODO remove commented code
+//    @DisplayName("Test Exception")
+//    @Test
+//    void exceptionHandler() {
+//        assertThrows(ValueNotFoundException.class, () -> {
+//            Thread.sleep(200);
+//            System.out.println("Inside testTimeout test");
+//        });
+//    }
+//
+//    @Test
+//    void testTimeOutPrempt() {
+//        assertTimeoutPreemptively(Duration.ofMillis(100), () -> {
+//            Thread.sleep(2000);
+//            System.out.println("Inside testTimeOutPremt test");
+//        });
+//    }
 
     @Test
     void testAssumptionTrue() {
