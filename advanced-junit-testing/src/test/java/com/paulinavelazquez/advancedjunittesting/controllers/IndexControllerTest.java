@@ -3,7 +3,6 @@ package com.paulinavelazquez.advancedjunittesting.controllers;
 import com.paulinavelazquez.advancedjunittesting.ControllerTests;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.*;
 
@@ -34,23 +33,31 @@ class IndexControllerTest implements ControllerTests {
         assertThat(controller.index()).isEqualTo("index");
     }
 
-    // TODO remove commented code
-//    @DisplayName("Test Exception")
-//    @Test
-//    void exceptionHandler() {
-//        assertThrows(ValueNotFoundException.class, () -> {
-//            Thread.sleep(200);
-//            System.out.println("Inside testTimeout test");
-//        });
-//    }
-//
-//    @Test
-//    void testTimeOutPrempt() {
-//        assertTimeoutPreemptively(Duration.ofMillis(100), () -> {
-//            Thread.sleep(2000);
-//            System.out.println("Inside testTimeOutPremt test");
-//        });
-//    }
+    @DisplayName("Test Exception")
+    @Test
+    void exceptionHandler() {
+        assertThrows(ValueNotFoundException.class, () -> {
+            controller.exceptionHandler();
+        });
+    }
+
+    @DisplayName("Demo of Timeout")
+    @Test
+    void testTimeOut() {
+        assertTimeout(Duration.ofMillis(1000), () -> {
+            Thread.sleep(500);
+            System.out.println("Inside testTimeout test");
+        });
+    }
+
+    @DisplayName("Demo of Timeout Preemptively")
+    @Test
+    void testTimeOutPrempt() {
+        assertTimeoutPreemptively(Duration.ofMillis(1000), () -> {
+            Thread.sleep(200);
+            System.out.println("Inside testTimeOutPremt test");
+        });
+    }
 
     @Test
     void testAssumptionTrue() {
