@@ -8,6 +8,7 @@
         <version>2.5.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>com.paulinavelazquez</groupId>
     <artifactId>advanced-junit-testing</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -15,7 +16,12 @@
     <description>Advanced JUnit Testing</description>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>11</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <junit-platform.version>5.3.1</junit-platform.version>
     </properties>
 
     <dependencies>
@@ -94,6 +100,8 @@
                     <argLine>
                         --illegal-access=permit
                     </argLine>
+<!--                    <groups>controllers</groups>-->
+<!--                    <excludedGroups>controllers</excludedGroups>-->
                 </configuration>
             </plugin>
 
@@ -119,5 +127,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
