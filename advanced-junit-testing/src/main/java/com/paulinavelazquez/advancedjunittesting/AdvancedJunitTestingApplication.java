@@ -9,5 +9,4 @@ public class AdvancedJunitTestingApplication {
     public static void main(String[] args) {
         SpringApplication.run(AdvancedJunitTestingApplication.class, args);
     }
-
 }
