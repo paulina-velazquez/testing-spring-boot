@@ -13,9 +13,11 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>advanced-junit-testing</name>
     <description>Advanced JUnit Testing</description>
+
     <properties>
         <java.version>11</java.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -80,7 +82,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.8.1</version>
             </plugin>
 
 <!--            Surefire Plugin-->
@@ -94,6 +96,8 @@
                     </argLine>
                 </configuration>
             </plugin>
+
+            <!-- Failsafe Plugin-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
@@ -103,6 +107,15 @@
                         --illegal-access=permit
                     </argLine>
                 </configuration>
+                <!-- Failsafe Configuration-->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

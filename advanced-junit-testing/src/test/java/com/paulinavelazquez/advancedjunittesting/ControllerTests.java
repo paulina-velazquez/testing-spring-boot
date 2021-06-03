@@ -10,6 +10,6 @@ public interface ControllerTests {
 
     @BeforeAll
     default void beforeAll() {
-        System.out.println("Let's do something here");
+        System.out.println("Controller Interface");
     }
 }
